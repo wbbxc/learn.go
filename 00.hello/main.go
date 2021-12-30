@@ -4,9 +4,21 @@ import (
 	"fmt"
 )
 
-func main() {
+func test(a int){
+	a++
+	fmt.Println(a)
+}
 
-	var sex bool
-	fmt.Println(sex)
+
+func main() {
+	a:=2
+
+	for i:=0;i<3;i++{
+
+		test(a)
+
+	}
+	test(a)
+
 
 }
