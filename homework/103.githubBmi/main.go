@@ -7,11 +7,16 @@ import (
 
 
 func main(){
-	tall,height := 65.0,1.85
 
+	//完成流程
+	tall,height,age,sex := 75.0,1.80,30,"男"
 	dbmi,_ := gobmi.BMI(tall,height)
-
-	fatRateDemo,help,_ := gobmi.FatRate(dbmi, 30, "男")
+	fatRateDemo,help,_ := gobmi.FatRate(dbmi, age, sex)
 	fmt.Println("fatRateDemo:", fatRateDemo)
 	fmt.Println("help:", help)
+
+
+
 }
+
+

@@ -4,7 +4,7 @@ import "fmt"
 
 
 func BMI(weightKG, heightM float64) (bmi float64, err error) {
-	if weightKG < 0 {
+	if weightKG <= 0 {
 		err = fmt.Errorf("weight cannot be negative")
 		return
 	}
