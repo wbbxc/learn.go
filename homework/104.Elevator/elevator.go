@@ -78,25 +78,8 @@ func (el *elevator) decline(dir int,targetFloor int)(num int, err error)  {
 
 
 
-func handle(event int)  {
+func (el1 *elevator)handle(event int)  {
 
-	//todo 整合代码
-	var el1 elevator
-	var lastFloor,targetFloor int = 0,0
-	var nextValue string
-
-	//楼层 是否第一次
-	Targetfloor:=map[int]string{
-		1: "",
-		2: "",
-		3: "",
-		4: "",
-		5: "",
-	}
-
-	el1.currentFloor = 1
-	fmt.Println("当前楼层",el1.currentFloor)
-	fmt.Scanln("请")
 
 /*
 	firstValue := "first"
@@ -108,17 +91,37 @@ func handle(event int)  {
 	targetFloor = 5
 	Targetfloor[targetFloor] = nextValue
 */
-
+	el1.currentFloor = 1
 	for {
-		listingEvents(Targetfloor,)
+		if listingEvents(1) {
+			break
+		}else {
+			listingEvents(1)
+		}
 	}
-
-	fmt.Println("当前楼层", lastFloor)
 
 
 }
 
-func listingEvents(Targetfloor map[int]string)  {
+func listingEvents(event int) bool {
+
+	var el1 elevator
+	var lastFloor,targetFloor int = 0,0
+	var nextValue string
+
+	//楼层 是否第一次
+
+	fmt.Println("当前楼层",el1.currentFloor)
+
+	Targetfloor:=map[int]string{
+		1: "",
+		2: "",
+		3: "",
+		4: "",
+		5: "",
+	}
+
+
 	for k, v := range Targetfloor{
 		//第二问
 		if k == 2 {
@@ -149,12 +152,18 @@ func listingEvents(Targetfloor map[int]string)  {
 	for k,_:= range Targetfloor{
 		if Targetfloor[k] !=""{
 			fmt.Println("开始下降----------")
-			lastFloor,_ = el1.decline(0,k)
+			lastFloor,_ = el1.decline(event,k)
 			Targetfloor[k] = ""
 		}
 	}
-	break
+
+	fmt.Println("当前楼层", lastFloor)
+
+
+	return false
+
 }
+
 
 func openDoor()  {
 	fmt.Println("门正在打开.......")
